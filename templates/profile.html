@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock title %}Home
+{% block body %}
+      <!-- Custom styles for this template -->
+    
+  
+    <body class="text-center" id="profile_page">  
+        {% load static%}
+        <link href="{% static 'css/main.css' %}" rel="stylesheet"> 
+        
+        <form class="form1" method="Post" action="/profile" >
+            {% csrf_token %}
+            <img class="mb-4" src="/static/images/studioLogo.jpg" height="170" width="168.8" style="border-radius:10%; border: 1.2px solid #5aa329">
+            <h3>Profile</h3>
+            <div class="form2">
+                <div class="form-group" >
+                    <label for="firstname" class="form-label" >FirstName</label>
+                    <p contenteditable='true'id="user_id" name="ufirstname" >{{user.first_name}}</p>
+                </div>
+                <div class="form-group" >
+                    <label for="lastname" class="form-label" >FirstName</label>
+                    <p contenteditable='true'id="user_id" name="ulasttname" >{{user.last_name}}</p>
+                </div>
+                <div class="form-group" >
+                    <label for="email" class="form-label" >Email</label>
+                    <p contenteditable='true'id="user_id" name="email" >{{user.email}}</p>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" id="submit_button" type="submit">Update Profile</button>
+            </div> 
+           
+        </form
+    </body>
+
+
+
+  
+ {% endblock body %}
+  

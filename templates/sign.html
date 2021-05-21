@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign in{% endblock title %}Home
+{% block body %}
+{% load static%}
+<link href="{% static 'css/main.css' %}" rel="stylesheet"> 
+
+  <body class="text-center" style="background-color: grey">
+    <div id="login_design" >
+      <form class="form1" method="Post" action="/sign">
+        {% csrf_token %}
+        <img class="mb-4" src="/static/images/studioLogo.jpg" alt= height="300" width="300" style="border-radius:10% ;border: 3px solid #5aa329">
+        <h2>Please sign in</h2>
+        <div class="form2">
+          <input type="text" style="margin:5px;" id="inputEmail" class="form-control" name="username" placeholder="username" required autofocus >
+          <input type="password" style="margin:5px;" value=""  id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+        <div>
+        <input type="checkbox" onclick="myFunction()">Show Password
+        <input type="checkbox" value="remember-me"> Remember me<br>
+
+              <script>
+                function myFunction() {
+                  var x = document.getElementById("inputPassword");
+                  if (x.type === "password") {
+                    x.type = "text";
+                  } else {
+                    x.type = "password";
+                  }
+                }
+              </script> 
+                <button class="w-100 btn btn-lg btn-primary" id="submit_button" type="submit">Login</button>
+                <br><a  href="/registration"> <b><br>Create New Account </b>  
+      
+      </form>
+    </div>
+ </body>
+
+  
+{% endblock body %}
+  

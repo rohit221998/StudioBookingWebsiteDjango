@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}checkout page{% endblock title %}Home
+{% block body %}
+This is checkout block
+<script>
+document.getElementById('cart').innerHTML=Object.keys(cart).length;
+updateCart(cart);
+</script>
+{% endblock body %}

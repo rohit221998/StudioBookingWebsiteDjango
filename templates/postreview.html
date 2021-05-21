@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}PostReview{% endblock title %}Home
+{% block body %}
+
+
+<form method="Post" action="/postreview" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="container mt-5" style="width:50% ">
+    
+        <label for="Rating">Rating:</label>&nbsp;
+        <select name="rating" id="rating">
+            <option value="Bad">Bad</option>
+            <option value="Average">Average</option>
+            <option value="Good">Good</option>
+            <option value="Excellent">Excellent</option>
+        </select>
+        <br><br>
+        <div class="form-group">
+        <label for="review" class="form-label">Message</label>
+        <textarea class="form-control" id="review" name="review_msg" placeholder="More detailed reviews get more visibility...." rows="3" required></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+        <label for="img">Add image:</label>
+        <input type="file" id="img" name="image"> 
+        </div>
+        <br>
+        <button class="w-45 btn btn-lg btn-primary" style="margin:5px;" type="submit" value="upload File">Review</button>
+
+    </div>
+</form>
+
+<script src="/static/js/annyang.min.js"></script>
+
+<script>
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+  
+    'write name *tag': function(variable) {
+      let name=document.getElementById("uname");
+      name.value=variable;
+    },
+    'write phone number *tag': function(variable) {
+      let mobile=document.getElementById("telno");
+      mobile.value=variable.split(" ").join("");
+    },
+    'write email *tag': function(variable) {
+      let email=document.getElementById("emailadd");
+      email.value=variable.split(" ").join("");
+    },
+    'write message *tag': function(variable) {
+      let message=document.getElementById("mymessage");
+      message.value=variable;
+    },
+  
+   
+    
+  };
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
+</script>
+
+{% endblock body %}

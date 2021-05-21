@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}My Booking{% endblock title %}Home
+{% block body %}
+      <!-- Custom styles for this template -->
+    
+  
+    <body class="text-center" id="mybooking_page" style="background-color:white">  
+        {% load static%}
+        <link href="{% static 'css/main.css' %}" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <div class="container">
+            <div class="border rounded p-6 m-6">
+                <p class="display-6 pl-6 ml-6"> Your Orders</p>
+                <hr>
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th>Sno.</th>
+                            <th>Order Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Booking Date</th>
+                            <th>Address</th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>Pincode</th>
+                            <th>Status</th>
+                            
+                        </tr>
+                    </thread>
+                    <tbody>
+                         {%for booking in bookings %}  
+                         <tr>
+                         <td>{{forloop.counter}}</td>
+                            <td>{{booking.order_date}}
+                            <td>{{booking.name}}</td>
+                            <td>{{booking.email}}</td>
+                            <td>{{booking.phone}}</td>
+                            <td>{{booking.booking_date}}</td>
+                            <td>{{booking.address}}</td>
+                            <td>{{booking.state}}</td>
+                            <td>{{booking.city}}</td>
+                            <td>{{booking.pincode}}</td>
+                            {% if booking.status %}
+                            <td><small class="badge badge-success">confirm</small></td>
+                            {% else %}
+                            <td><small class="badge badge-warning">pending</small></td>
+                            {% endif %}
+
+                        </tr>
+                        {% endfor %}
+
+                    </tbody
+                </table>
+                     
+
+            </div>
+        </div>
+
+                
+    </body>
+
+
+
+  
+ {% endblock body %}
+  

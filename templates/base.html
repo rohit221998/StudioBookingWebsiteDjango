@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title> {% block title %}{% endblock title %} testing</title>
+  </head>
+  <body>
+  
+  <style>
+    
+    #login-button:link , #login-button:visited {
+      border: 1px solid #1365a1;
+      border-radius: 10px;
+      color:#1365a1;
+      text-decoration: none;
+    }
+    
+    #login-button:hover,#login-button:active {
+      border: 1px solid #1365a1;
+      border-radius: 10px;
+      color: white;
+      background-color:#0b4e80;
+      text-decoration: none;
+    }
+    #dropdownMenuButton{
+      border: 1px solid #0a7d94;
+      border-radius: 10px;
+      color:grey;
+      background-color: #20313d;
+    }
+
+      
+  </style>
+  
+ <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #20313d;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" /a>
+    <img src="/static/images/studioLogo.jpg" alt="Logo"  width="40" height="39.8" style="border-radius:50%; border: 2px solid #5aa329; margin-right:10px">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" ariar-current="page" href="/" style="margin-top:-26px">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/booking">WEEDING</a></li>
+            <li><a class="dropdown-item" href="#">ENGAMENTS</a></li>
+            <li><a class="dropdown-item" href="#">BIRTHDAY</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reviews">Reviews</a>
+        </li>
+        {% comment %} <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"><a href="/shop/checkout" style="color:white;">Cart(<span id="cart">0</span>)</a></button> {% endcomment %}
+
+        
+       
+      </ul>
+      <form class="d-flex">
+         {%if request.user.is_authenticated %}
+           <p style="color:grey; margin-top:auto; margin-bottom:auto">Welcome&nbsp;&nbsp;</p>
+           <div class="dropdown" style="margin-right:60px;">
+              <button class="btn btn-secondary dropdown-toggle"  type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                {{user}}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                <li><a class="dropdown-item" href="/myorder">Your Booking</a></li>
+                <li><a class="dropdown-item" href="#">Your Order</a></li>
+                <li><a class="dropdown-item" href="/signout">Logout</a></li>
+              </ul>
+            </div>
+          {% else %}
+            
+              <a class="nav-link" id="login-button" href="/sign">Login</a> 
+          {% endif %} 
+          
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+ <strong> {{ message }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+
+
+    {% block body %} {% endblock body %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+    {%block js%} {%endblock%}
+  </body>
+</html>

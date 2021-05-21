@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration form{% endblock title %}Home
+{% block body %}
+  {% load static%}
+  <link href="{% static 'css/main.css' %}" rel="stylesheet"> 
+
+  <!-- Custom styles for this template -->  
+  
+  <body class="text-center"style="background-color:white">
+      <form class="form1" method="Post" action="/registration" >
+        {% csrf_token %}
+        <img class="mb-4" src="/static/images/studioLogo.jpg" height="170" width="168.8" style="border-radius:10%; border: 1px solid #5aa329 ">
+        <h3>Please Create Account</h3>
+        <div class="form2">
+          <input type="text" style="margin:5px;" id="inputusername" class="form-control" name="username" placeholder="Username" required autofocus>
+          <input type="text" style="margin:5px;" id="firstname"   class="form-control" name="firstname" placeholder="Enter First Name" required  >
+          <input type="text" id="lastname" style="margin:5px;"  class="form-control" name="lastname" placeholder="Enter Last Name" required  >
+          <input type="Email" id="inputEmail" style="margin:5px;"  class="form-control" name="email" placeholder="Enter Email" required  >
+          <input type="password" value=""  style="margin:5px;"  id="inputPassword" class="form-control" name="password" placeholder="Password" required><br> 
+          <button class="w-100 btn btn-lg btn-primary" id="submit_button" type="submit">create account</button>
+        </div>
+      
+      
+      </form>
+
+  </body>
+
+  
+ {% endblock body %}
+  

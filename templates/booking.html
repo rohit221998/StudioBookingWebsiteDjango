@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Wedding Service{% endblock title %}Home
+{% block body %}
+
+
+<form class="form1" method="Post" action="/booking" style="margin-top:120px" >
+    {% csrf_token %}
+    <div class="container" style="width:65% ">
+       <h1 class="text-center"> Booking Details</h1><br><br>
+        <p>Please fill out the following details in this form.  You can also reach us directly at studio@gmail.com</p>
+        <div class="form-group" >
+            <label for="uname" class="form-label" >Name</label>
+            <input type="text" class="form-control" id="uname" name="name" placeholder="Enter your Name" required autofocus>
+        </div></br>
+        
+        <div class="form-group">
+            <label for="telno" class="form-label">Contact Number</label>
+            <input type="phone" class="form-control" id="telno" name="phone" placeholder="10-digit mobile number" required >
+        </div><br>
+        <div class="form-group">
+            <label for="emailadd" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="emailadd" name="email" placeholder="name@example.com" required >
+        </div><br>
+        <div class="form-group">
+            <label for="date" class="form-label">Date</label>
+            <p style="font-size:10px; color:grey"> Booking Date</p>
+            <input type="date" class="form-control" id="booking_date" name="booking_date" placeholder="booking date" required >
+        </div><br>
+        <div class="form-group">
+            <label for="inputAddress" class="form-label">Address</label>
+                <p style="font-size:10px; color:grey">Venue Address</p>
+            <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address(Area and Street)">  
+        </div><br>
+        <div class="form-group">
+        <label for="venue" class="form-label">Wedding Location</label>
+            <div class="row g-3">
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="city" placeholder="City/District/Town" aria-label="City">
+                </div>
+                <div class="col-sm">
+                    <input type="text" class="form-control" name="state" placeholder="State" aria-label="State">
+                </div>
+                <div class="col-sm">
+                    <input type="text" class="form-control" name="pincode" placeholder="Pincode" aria-label="Zip">
+                </div>
+            </div>
+        </div><br>
+        <div class="form-group">
+            <label for="mymessage" class="form-label">Message</label>
+            <textarea class="form-control" id="mymessage" name="des" placeholder="write something......." rows="3" ></textarea>
+        
+        </div><br>
+        <button class="w-45 btn btn-lg btn-primary" style="margin:5px;" type="submit">Confirm Booking</button>
+
+    </div>
+            
+ </form>
+
+
+{% endblock body %}
