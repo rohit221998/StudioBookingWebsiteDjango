@@ -2,8 +2,29 @@
 
 {% block title %}Registration form{% endblock title %}Home
 {% block body %}
-  {% load static%}
-  <link href="{% static 'css/main.css' %}" rel="stylesheet"> 
+<style>
+
+
+#submit_button:hover,#submit_button:active {
+    border: 1px #052136;
+    border-radius: 10px;
+    color: white;
+    background-color:#052136;
+    text-decoration: none;
+}
+.form1{
+    padding:5px;
+    color: white;
+  }
+.form2{
+    width:30%;
+    margin-left: auto;
+    margin-right: auto;
+  } 
+
+</style>
+  {% comment %} {% load static%}
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">  {% endcomment %}
 
   <!-- Custom styles for this template -->  
   

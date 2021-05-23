@@ -2,8 +2,20 @@
 
 {% block title %}Sign in{% endblock title %}Home
 {% block body %}
-{% load static%}
-<link href="{% static 'css/main.css' %}" rel="stylesheet"> 
+<style>
+.form1{
+    padding:5px;
+    color: white;
+    }
+.form2{
+    width:30%;
+    margin-left: auto;
+    margin-right: auto;
+    } 
+
+</style>
+{% comment %} {% load static%}
+<link href="{% static 'css/main.css' %}" rel="stylesheet">  {% endcomment %}
 
   <body class="text-center" style="background-color: grey">
     <div id="login_design" >
