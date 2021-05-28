@@ -1,51 +1,42 @@
 {% extends 'base.html' %}
 {% block title %}About us{% endblock title %}Home
+
 {% block body %}
+<style>
+  #pfont{
+   font-family:arial;
+  
+  }
+  .visit{
+    font-family:arial;
+    color:orange;
+  }
+</style>
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <main>
-
+{%load static%}
  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
       <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
       <li data-bs-target="#myCarousel" data-bs-slide-to="1" class=""></li>
       <li data-bs-target="#myCarousel" data-bs-slide-to="2" class=""></li>
-     <li data-bs-target="#myCarousel" data-bs-slide-to="3" class=""></li>
-      <li data-bs-target="#myCarousel" data-bs-slide-to="4" class=""></li>
+
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-      <img src="/static/images/5.jpg"  class="d-block w-100" alt="..." height="300" width="1600">
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p></p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-          </div>
-        </div>
+        <img src="https://source.unsplash.com/1600x400/?photo" alt=>
+        
       </div>
       <div class="carousel-item">
-      {%load static%}
-        <img src="{% static 'images/mypic.jpg' %}"  class="d-block w-100" alt="..." height="300" width="1600">
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p></p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-          </div>
-        </div>
+        <img src="{% static 'images/about1.jpg' %}"  class="d-block w-100" alt="..." >
+        
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="1600" height="300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <img src="https://source.unsplash.com/1600x400/?photo" >
 
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p></p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-          </div>
-        </div>
+       
       </div>
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
@@ -75,14 +66,14 @@
       
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <img src="https://source.unsplash.com/140x0/?photo" width="140" height="140" style="border-radius:50%" alt="...">
 
         <h2>Prajakata Patil</h2>
         <p>team member</p>
         
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <img src="https://source.unsplash.com/140x0/?photo" width="140" height="140" style="border-radius:50%" alt="...">
 
         <h2>Shruti Dhude</h2>
         <p>team member</p>
@@ -94,50 +85,57 @@
 
     <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider">
+    <br><br><br>
 
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">From Personal Matrimonial Portfolios to Hi-end Fashion Shoots and Product Photography. We have Studio Photo Packages to meet all your needs.</p>
-      </div>
-      <div class="col-md-5">
-        <img src="/static/images/photo2.jpg" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></=>
+    <div class="row-featurette">
+      
+        <h2 class="featurette-heading">ABOUT US. </h2><hr>
+        
+        <p id="pfont"> Anyone with a digital camera can take photographs according to his or her whims and fancies. However the most salient feature of digital photography is that, one can see the photographs instantly on a computer or mobile camera without any delay. The popularity of mobile camera & digital camera have made thousands of people to enhance their photography skills and exhibit them in social media websites
+         <br><br><br>Still, the print versions enjoy great popularity among the common folks. Gemini Photo Studio & Stores is specially designed for those who want to share their photographs in printed versions with family and friends. We are in existence since 1951 and have been servicing ever since then with always updating our self with the latest printing technologies. 
+          We have got some unbelievable offers for those who wish to send the photographs anywhere in India. What we do is that, we take prints with our state- of-the- art digital machines and send it to the mentioned addresses in your order.
+          <br><br>All you need to do is to register, upload your photographs make your payments.
+         <br><br> We love printing your memories. Will you be happy to print snaps of your near & dear ones?
+          <br><br>The memories in our photo quality paper and photo gifts will last for many years and we use latest printing technology to print them.
+         <br><br> All our home delivery orders of digital photo prints are backed by 100% guarantee of your satisfaction. We're confident you'll treasure the photo prints & merchandises you ordered from us. In the unlikely event of when you are not satisfied, get in touch with us within 2 days and we will refund the cost of your order or offer you free replacement.
+          The reason is simple.
+          <br><br><br>We like to see you smile every time you visit us.
 
-      </div>
-    </div>
+        </p>
 
-    <hr class="featurette-divider">
+         <h2 class="featurette-heading">WHO ARE WE? </h2><hr>
+        <p id="pfont">JB Photo Studio & Stores is a professional studio & lab delivering happiness and smiles to every family. We help you to print your mobile snaps into photo prints and many personalized photo gifts to treasure memories of your family, friends and loved ones. Now you have a reason to print those thousand snaps from your mobile gallery to cherish past moments and smile again.
+          <br><br>
+          JBPhoto Studio & Stores provides various print sizes which matched your requirements. We use silver halide printing technology and the photo paper used for printing is Kodak or Fuji as per the availability of stock.
+          <br><br>
+          Each and every print order passes through several manual processes. The cropping, colour correction, and printing are done under strict supervision of our quality control people and we have been successful in giving the maximum available print output for the quality of images provided by our customers.
+          <br><br>
+            We provide the reasonable price prevailing in the online photo printing industry and the best quality products.
+            <br><br>
+            Please visit our pricing page for knowing the details of size, rates and shipping charges.
+            <br><br>
+            We thank you for your interest in Gemini Photo Studio & Stores. Please feel free to contact us for further queries by writing to us at support@jbphotostudio.com
+         
+        </p>
+           <br>
+          <p class="visit">Visit us 
+            <br><br><br>
+            Gemini Photo Studio & Stores
+          </p>
+          <p>
+              C-543, Phulchand Niwas,<br>
+              Pulchand Niwas,<br>
+              Girgaum Chowpatty,<br>
+              Pune 800001,<br>
+              Maharashtra, India.<br>
+           </p> 
 
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">With a wide range of Seamless Backdrops, a terrace garden, or a location shoot we can help you bring out the beauty in your apparel </p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        <img src="/static/images/4.jpg" w width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></img>
 
-      </div>
-    </div>
 
-    <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">From Personal Matrimonial Portfolios to Hi-end Fashion Shoots and Product Photography. We have Studio Photo Packages to meet all your needs.</p>
-      </div>
-      <div class="col-md-5">
-        <img src="/static/images/photo1.jpg"  width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></img>
+       
 
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
-
-  </div><!-- /.container -->
+      </div><!-- /.container -->
 
 
   <!-- FOOTER -->

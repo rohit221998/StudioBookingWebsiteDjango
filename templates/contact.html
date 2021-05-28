@@ -2,13 +2,19 @@
 
 {% block title %}Contact us{% endblock title %}Home
 {% block body %}
-
+<style>
+.contact{
+  text-align:center;
+}
+</style>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <form method="Post" action="/contact">
     {% csrf_token %}
     <div class="container-fluid px-0" >
     <img class="mb-4" src="/static/images/contact.jpg" class="d-block w-100 mx-0" alt="..." width="1520" height="300"> 
-    <h1 >Contact us</h1>
+    <h1 class="contact" >Contact us</h1>
     </div>
     <div class="container" style="width:50% ">
     <div class="form-group" >
