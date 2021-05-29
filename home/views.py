@@ -103,6 +103,7 @@ def registration(request):
 @login_required
 def profile(request):
   args = {'user':request.user}
+  
   return render(request,'profile.html',args)  
 
 @login_required
