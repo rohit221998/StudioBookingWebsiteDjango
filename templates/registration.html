@@ -23,15 +23,15 @@
   } 
 
 </style>
-  {% comment %} {% load static%}
-  <link href="{% static 'css/main.css' %}" rel="stylesheet">  {% endcomment %}
+   {% load static%}
+  {% comment %} <link href="{% static 'css/main.css' %}" rel="stylesheet">  {% endcomment %} 
 
   <!-- Custom styles for this template -->  
   
   <body class="text-center"style="background-color:white">
       <form class="form1" method="Post" action="/registration" >
         {% csrf_token %}
-        <img class="mb-4" src="/static/images/studioLogo.jpg" height="170" width="168.8" style="border-radius:10%; border: 1px solid #5aa329 ">
+        <img class="mb-4" src={% static 'images/studio1.jpg' %}height="170" width="168.8" style="border-radius:10%; border: 1px solid #5aa329 "  alt="images">
         <h3 style="color:black">Please Create Account</h3>
         <div class="form2">
           <input type="text" style="margin:5px;" id="inputusername" class="form-control" name="username" placeholder="Username" required autofocus>
