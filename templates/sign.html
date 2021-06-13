@@ -2,6 +2,7 @@
 
 {% block title %}Sign in{% endblock title %}Home
 {% block body %}
+{%load static%}
 <style>
 .form1{
     padding:5px;
@@ -21,7 +22,7 @@
     <div id="login_design" >
       <form class="form1" method="Post" action="/sign">
         {% csrf_token %}
-        <img class="mb-4" src="/static/images/studioLogo.jpg" alt= height="300" width="300" style="border-radius:10% ;border: 3px solid #5aa329">
+        <img class="mb-4" src="{% static 'images/studioLogo.jpg' %}" alt="logo" height="300" width="300" style="border-radius:10% ;border: 3px solid #5aa329">
         <h2>Please sign in</h2>
         <div class="form2">
           <input type="text" style="margin:5px;" id="inputEmail" class="form-control" name="username" placeholder="username" required autofocus >

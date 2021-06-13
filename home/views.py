@@ -93,7 +93,7 @@ def registration(request):
     myuser = User.objects.create_user(username,email,password)
     myuser.first_name = firstname
     myuser.last_name = lastname
-    myuser.save()
+    myuser.save(commit=False)
     messages.success(request,'Your Account Successful Created..pls login!!!')
    
   return render(request,'registration.html')
@@ -103,14 +103,20 @@ def registration(request):
 @login_required
 def profile(request):
   args = {'user':request.user}
-  
+  if request.method == "POST":
+    instance=request.POST.get('ufirstname')
+    # ulastname=request.POST.get('ulastname')  
+    myuser=User(first_name=instance)
+    myuser.save()
+    messages.success(request,'Your Profile Update Successfilly!!!')
   return render(request,'profile.html',args)  
 
 @login_required
 def myorder(request):
   user = request.session.get('user')
-  bookings = Booking.get_order_by_user(user)
-  
+  print('user:',user)
+  bookings=Booking.objects.filter(user=request.user)
+ 
   params={'bookings':bookings}
   return render(request,'myorder.html',params)  
 
@@ -118,7 +124,7 @@ def booking(request):
   if request.user.is_anonymous:
      return redirect("/sign")
   if request.method == "POST":
-    user = request.session.get('user')
+    instance=request.user
     name = request.POST.get('name')
     email = request.POST.get('email')
     phone = request.POST.get('phone')
@@ -128,26 +134,27 @@ def booking(request):
     state = request.POST.get('state')
     pincode = request.POST.get('pincode')
     booking_date = request.POST.get('booking_date')
-    booking = Booking(user=user, name=name, email=email, phone=phone,des=des, booking_date=booking_date, order_date=datetime.today(), address=address, city=city, state=state, pincode=pincode)
+    booking = Booking( user=instance,name=name, email=email, phone=phone,des=des, booking_date=booking_date, order_date=datetime.today(), address=address, city=city, state=state, pincode=pincode)
     booking.save()
     messages.success(request,'Your booking Successfilly!!!')
   return render(request,'booking.html')
 
 def reviews(request):
+  user = request.session.get('user')
   reviews = Review.objects.all()
   params={'reviews':reviews}
-
+  print('user:',user)
   return render(request,'reviews.html',params)
 
 def postreview(request):
   if request.user.is_anonymous:
      return redirect("/sign")
   if request.method == "POST":
-    user = request.session.get('user')
+    instance=request.user
     rating = request.POST.get('rating')
     review_msg = request.POST.get('review_msg')
     image = request.POST.get('image')
-    review = Review(user=user, rating=rating, review_msg=review_msg, image=image, date=datetime.today())
+    review = Review(user=instance, rating=rating, review_msg=review_msg, image=image, date=datetime.today())
     review.save()
     messages.success(request,'Your review Successfilly Post!!!')
 

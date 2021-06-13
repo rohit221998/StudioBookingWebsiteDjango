@@ -31,3 +31,39 @@
   color:#0a7d94;
   background-color: #20313d;
 }
+
+/* about page */
+#pfont{
+    font-family:arial;
+   
+   }
+   .visit{
+     font-family:arial;
+     color:orange;
+   }
+
+/* index page */
+
+body{
+    padding-bottom: 30px;
+  }
+  #card-style{
+        margin-bottom:30px;
+        
+      }
+      span{
+        font-family:times;
+       color: #2E2E2E;
+       font-size:36px;
+      }
+      p{
+        font-family:times;
+        font-size:16px;
+        color:grey;
+        margin-top:10px;
+      }
+      h3{
+        font-family:times;
+        color:dark;
+        margin-top:20px;
+      }

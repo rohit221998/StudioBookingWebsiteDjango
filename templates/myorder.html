@@ -18,6 +18,7 @@
                     <thread>
                         <tr>
                             <th>Sno.</th>
+                            
                             <th>Order Date</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -35,6 +36,7 @@
                          {%for booking in bookings %}  
                          <tr>
                          <td>{{forloop.counter}}</td>
+                           
                             <td>{{booking.order_date}}
                             <td>{{booking.name}}</td>
                             <td>{{booking.email}}</td>

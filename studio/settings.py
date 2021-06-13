@@ -24,9 +24,9 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','djangoappstudiobooking.azurewebsites.net','localhost']
+ALLOWED_HOSTS = ['127.0.0.1','djangoappstudiobooking.azurewebsites.net']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,17 +128,23 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Managing media
-MEDIA_ROOT = os.path.join (BASE_DIR,'media')
+
 MEDIA_URL = '/media/'
 
 # added manually
 
-STATIC_ROOT=os.path.join(BASE_DIR,"static")
 
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-#     '/var/www/static/',
-# ]
+  
+#when debug is true 
+if DEBUG:
+
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+else:
+    #when debug is false
+
+  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+  MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 

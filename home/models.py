@@ -1,27 +1,22 @@
 from django.db import models
-from datetime import date,datetime
+from datetime import datetime,date
 from django.contrib.auth.models import User
 # Create your models here.
 
 class Contact(models.Model):
-
-
     name = models.CharField(max_length=25)
     email = models.CharField(max_length=25)
     phone = models.CharField(max_length=10)
     des = models.TextField()
-    date = models.DateField()
-    
-    def __str__(self): 
-        return self.email
+    date = models.DateTimeField(auto_now_add=True)
 
-class User(models.Model):
-    gender=models.CharField(max_length=15)
-    date = models.DateField(default="")
+ 
+
+
 
 class Booking(models.Model):
     order_date = models.DateField()
-    user = models.CharField(max_length=25,default="")
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
     email = models.CharField(max_length=25)
     phone = models.IntegerField()
@@ -30,31 +25,19 @@ class Booking(models.Model):
     pincode = models.CharField(max_length=6)
     address = models.TextField()
     des = models.TextField()
-    booking_date = models.DateField()
+    booking_date = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=False)
-
-
-    def __str__(self):
-        
-        return self.user
-    # current user who book order filter by database
-    @staticmethod
-    def get_order_by_user(user_id):
-        return Booking.objects.filter(user = user_id)
 
     
 
 class Review(models.Model):
-    user = models.CharField(max_length=25,default="")
+    user = models.ForeignKey(User,on_delete=models.CASCADE)   
     review_msg = models.TextField()
     rating = models.CharField(max_length=10)
-    date = models.DateField()
+    date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='reviewimages/')
 
-    def __str__(self):
-        
-        
-        return self.user
+   
 
 
 
