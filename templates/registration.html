@@ -2,17 +2,36 @@
 
 {% block title %}Registration form{% endblock title %}Home
 {% block body %}
-{% load static %}
+<style>
 
-   
-  <link href="{% static 'css/main.css' %}" rel="stylesheet">  
+
+#submit_button:hover,#submit_button:active {
+    border: 1px #052136;
+    border-radius: 10px;
+    color: white;
+    background-color:#052136;
+    text-decoration: none;
+}
+.form1{
+    padding:5px;
+    color: white;
+  }
+.form2{
+    width:30%;
+    margin-left: auto;
+    margin-right: auto;
+  } 
+
+</style>
+  {% comment %} {% load static%}
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">  {% endcomment %}
 
   <!-- Custom styles for this template -->  
   
   <body class="text-center"style="background-color:white">
       <form class="form1" method="Post" action="/registration" >
         {% csrf_token %}
-        <img class="mb-4" src="{% static 'images/studioLogo.jpg' %}" height="170" width="168.8" style="border-radius:10%; border: 1px solid #5aa329 "  alt="images">
+        <img class="mb-4" src="/static/images/studioLogo.jpg" height="170" width="168.8" style="border-radius:10%; border: 1px solid #5aa329 ">
         <h3 style="color:black">Please Create Account</h3>
         <div class="form2">
           <input type="text" style="margin:5px;" id="inputusername" class="form-control" name="username" placeholder="Username" required autofocus>

@@ -93,7 +93,7 @@ def registration(request):
     myuser = User.objects.create_user(username,email,password)
     myuser.first_name = firstname
     myuser.last_name = lastname
-    myuser.save(commit=False)
+    myuser.save
     messages.success(request,'Your Account Successful Created..pls login!!!')
    
   return render(request,'registration.html')
